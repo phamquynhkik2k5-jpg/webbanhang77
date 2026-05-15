@@ -1,0 +1,579 @@
+/* =========================================
+   1. RESET & CÀI ĐẶT CHUNG
+   ========================================= */
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    /* Bảng màu mới: Sang trọng, hiện đại, công nghệ */
+    --primary-color: #0f172a;    /* Xanh Slate siêu đậm (chuyên nghiệp) */
+    --accent-color: #4f46e5;     /* Xanh Indigo (hiện đại, nổi bật) */
+    --accent-hover: #4338ca;     /* Xanh Indigo đậm hơn khi hover */
+    --text-dark: #1e293b;
+    --text-gray: #64748b;
+    --bg-light: #f8fafc;
+    --white: #ffffff;
+    --shadow: 0 20px 40px rgba(0, 0, 0, 0.06); /* Đổ bóng mềm mại hơn */
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Chuyển động mượt hơn */
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* =========================================
+   2. HEADER & NAVIGATION
+   ========================================= */
+.site-header {
+    background: var(--white);
+    padding: 20px 0;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.03);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.logo {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    letter-spacing: -1px;
+    text-transform: uppercase;
+}
+
+.main-nav {
+    background: var(--primary-color);
+    padding: 15px 0;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: rgba(255,255,255,0.7);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    position: relative; /* Thêm relative cho hiệu ứng gạch chân */
+    padding-bottom: 4px;
+}
+
+/* Hiệu ứng gạch chân trượt mượt mà cho Menu */
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--white);
+    transition: width 0.3s ease;
+}
+
+.main-nav a:hover, .main-nav a.active {
+    color: var(--white);
+}
+
+.main-nav a:hover::after, .main-nav a.active::after {
+    width: 100%;
+}
+
+/* =========================================
+   3. BỐ CỤC CHÍNH (CONTAINER)
+   ========================================= */
+.container {
+    display: flex;
+    max-width: 1200px;
+    margin: 40px auto;
+    gap: 30px;
+    padding: 0 15px;
+}
+
+.content {
+    flex: 3;
+}
+
+.sidebar {
+    flex: 1;
+}
+
+.section-header h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    position: relative;
+    padding-left: 15px;
+    color: var(--primary-color);
+}
+
+.section-header h2::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 80%;
+    background: var(--accent-color);
+    border-radius: 10px;
+}
+
+/* =========================================
+   4. DANH SÁCH SẢN PHẨM (GRID)
+   ========================================= */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.product-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 25px;
+    text-align: center;
+    transition: var(--transition);
+    border: 1px solid rgba(0,0,0,0.04);
+    position: relative;
+    overflow: hidden; /* Giữ ảnh không tràn viền khi zoom */
+}
+
+/* Hiệu ứng nảy và đổ bóng chuyên nghiệp hơn */
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow);
+    border-color: rgba(79, 70, 229, 0.1); 
+}
+
+.img-container {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.product-card img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.5s ease; /* Chuyển động zoom chậm và sang trọng */
+}
+
+.product-card:hover img {
+    transform: scale(1.08);
+}
+
+.product-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text-dark);
+}
+
+.product-price {
+    color: var(--accent-color);
+    font-weight: 800;
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+}
+
+/* Group Nút Bấm */
+.button-group {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-detail, .btn-buy {
+    border: none;
+    padding: 12px 15px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: var(--transition);
+}
+
+.btn-detail {
+    background: #f1f5f9;
+    color: var(--text-dark);
+}
+
+.btn-detail:hover {
+    background: #e2e8f0;
+    color: var(--accent-color); /* Đổi màu chữ khi hover */
+}
+
+.btn-buy {
+    background: var(--accent-color);
+    color: var(--white);
+}
+
+.btn-buy:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px); /* Nút nổi nhẹ lên */
+    box-shadow: 0 8px 20px rgba(79, 70, 229, 0.35);
+}
+
+/* =========================================
+   5. SIDEBAR WIDGET
+   ========================================= */
+.widget {
+    background: var(--white);
+    padding: 25px;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    border: 1px solid rgba(0,0,0,0.04);
+}
+
+.widget h3 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.category-links {
+    list-style: none;
+}
+
+.category-links li {
+    padding: 8px 0;
+}
+
+.category-links a {
+    text-decoration: none;
+    color: var(--text-gray);
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+}
+
+/* Thêm hiệu ứng trượt mượt mà cho Sidebar */
+.category-links a:hover {
+    color: var(--accent-color);
+    transform: translateX(6px);
+    font-weight: 500;
+}
+
+/* =========================================
+   6. MODAL CHI TIẾT (XỊN)
+   ========================================= */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.7); /* Nền modal tối sang hơn */
+    backdrop-filter: blur(8px);
+    overflow-y: auto; 
+}
+
+.modal-content {
+    background: var(--white);
+    margin: 5vh auto;
+    padding: 40px;
+    width: 90%;
+    max-width: 900px;
+    border-radius: 24px;
+    position: relative;
+    max-height: 90vh;        
+    overflow-y: auto;       
+    animation: modalSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1); /* Chuyển động xịn xò hơn */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.modal-content::-webkit-scrollbar {
+    width: 6px;
+}
+.modal-content::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+
+@keyframes modalSlideUp {
+    from { opacity: 0; transform: translateY(30px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.close-btn {
+    position: absolute;
+    right: 25px;
+    top: 20px;
+    font-size: 32px;
+    cursor: pointer;
+    color: var(--text-gray);
+    transition: var(--transition);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #f8fafc;
+}
+
+.close-btn:hover {
+    color: var(--accent-color);
+    background: #e2e8f0;
+    transform: rotate(90deg); /* Hiệu ứng xoay nhe khi đóng */
+}
+
+.modal-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.modal-image {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-image img {
+    max-width: 100%;
+    border-radius: 16px;
+}
+
+.modal-info {
+    flex: 1.2;
+    min-width: 300px;
+}
+
+.badge {
+    display: inline-block;
+    background: #e0e7ff;
+    color: var(--accent-color);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 30px;
+    margin-bottom: 15px;
+}
+
+.modal-info h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.modal-price {
+    font-size: 1.8rem;
+    color: var(--accent-color);
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.modal-desc {
+    color: var(--text-gray);
+    margin-bottom: 25px;
+    font-size: 1rem;
+}
+
+.specs-box {
+    background: #f8fafc;
+    padding: 25px;
+    border-radius: 16px;
+    margin-top: 20px;
+    border: 1px solid rgba(0,0,0,0.03);
+}
+
+.specs-box h4 {
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.spec-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px dashed #e2e8f0;
+}
+
+.spec-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.spec-label { color: var(--text-gray); font-size: 0.95rem; }
+.spec-value { font-weight: 600; color: var(--text-dark); text-align: right; }
+
+.btn-buy-large {
+    width: 100%;
+    margin-top: 30px;
+    background: var(--accent-color);
+    color: var(--white);
+    border: none;
+    padding: 16px;
+    border-radius: 14px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-buy-large:hover {
+    background: var(--accent-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(79, 70, 229, 0.4);
+}
+
+/* =========================================
+   7. FOOTER
+   ========================================= */
+.site-footer {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 70px 0 30px;
+    margin-top: 80px;
+}
+
+.footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    padding: 0 15px;
+}
+
+.footer-col h4 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: var(--white);
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-col h4::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 3px;
+    background: var(--accent-color);
+    border-radius: 2px;
+}
+
+.footer-col p {
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 10px;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.5);
+}
+
+/* =========================================
+   8. RESPONSIVE
+   ========================================= */
+@media (max-width: 768px) {
+    .container { flex-direction: column; }
+    .sidebar { order: 2; }
+    .content { order: 1; }
+    .main-nav ul { gap: 20px; flex-wrap: wrap; }
+    .modal-flex { gap: 20px; }
+}
+/* =========================================
+   9. HERO BANNER (ẢNH ĐẦU TRANG)
+   ========================================= */
+   .hero-banner {
+    width: 100%;
+    height: 450px;
+    /* Sử dụng ảnh công nghệ chất lượng cao, chuyên nghiệp */
+    background-image: linear-gradient(rgba(15, 23, 42, 0.3), rgba(15, 23, 42, 0.3)), url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1920&q=80'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    border-bottom: 5px solid var(--accent-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Thêm hiệu ứng chữ đè lên ảnh cho chuyên nghiệp hơn (Tùy chọn) */
+.hero-banner::before {
+    content: 'CHÀO MỪNG ĐẾN VỚI LUXESHOP';
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+/* =========================================
+   10. SOCIAL MEDIA ICONS (FOOTER)
+   ========================================= */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.social-icons a {
+    color: var(--white);
+    background: rgba(255, 255, 255, 0.1);
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    transition: var(--transition);
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.social-icons a:hover {
+    background: var(--accent-color);
+    color: var(--white);
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 20px rgba(79, 70, 229, 0.4);
+    border-color: var(--accent-color);
+}

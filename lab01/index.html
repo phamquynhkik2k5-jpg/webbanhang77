@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuxeShop - Công Nghệ & Phụ Kiện</title>
+    
+    <link rel="icon" href="image_24b520.jpg" type="image/jpeg">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="header-container">
+            <h1 class="logo">LuxeShop.</h1>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="#" class="active">Trang Chủ</a></li>
+            <li><a href="#">Laptop</a></li>
+            <li><a href="#">Điện Thoại</a></li>
+            <li><a href="#">Phụ Kiện</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero-banner"></div>
+
+    <div class="container">
+        <main class="content">
+            <div class="section-header">
+                <h2>Sản Phẩm Mới Nhất</h2>
+            </div>
+            <div id="product-list" class="product-grid"></div>
+        </main>
+
+        <aside class="sidebar">
+            <div class="widget">
+                <h3><i class="fas fa-list"></i> Danh Mục</h3>
+                <ul class="category-links">
+                    <li><a href="#">Laptop Gaming</a></li>
+                    <li><a href="#">MacBook Pro</a></li>
+                    <li><a href="#">iPhone 15 Series</a></li>
+                    <li><a href="#">Phụ kiện Apple</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-col">
+                <h4>Về LuxeShop</h4>
+                <p>Địa chỉ tin cậy cho các tín đồ công nghệ.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Liên hệ</h4>
+                <p><i class="fas fa-phone"></i> 1900 1234</p>
+                <p><i class="fas fa-envelope"></i> contact@luxeshop.vn</p>
+            </div>
+            
+            <div class="footer-col social-media">
+                <h4>Kết nối với chúng tôi</h4>
+                <div class="social-icons">
+                    <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" title="Twitter / X"><i class="fab fa-x-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 LuxeShop. Design with <i class="fas fa-heart" style="color: red;"></i></p>
+        </div>
+    </footer>
+
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="products.js"></script>
+</body>
+</html>
