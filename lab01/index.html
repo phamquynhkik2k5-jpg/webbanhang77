@@ -3,109 +3,220 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LuxeShop - Công Nghệ & Phụ Kiện</title>
+    <title>LuxeShop - Công Nghệ & Phụ Kiện Premium</title>
     
     <link rel="icon" href="image_24b520.jpg" type="image/jpeg">
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+    <!-- HEADER -->
     <header class="site-header">
-        <div class="header-container">
-            <h1 class="logo"><i class="fas fa-gem"></i> LuxeShop.</h1>
+        <div class="header-content">
+            <div class="logo-section">
+                <h1 class="logo">
+                    <i class="fas fa-crown"></i> LuxeShop
+                </h1>
+                <p class="tagline">Công Nghệ Cao Cấp</p>
+            </div>
+            <div class="header-actions">
+                <div class="search-box">
+                    <input type="text" placeholder="Tìm kiếm sản phẩm...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="header-icons">
+                    <a href="#" class="icon-btn" title="Yêu thích">
+                        <i class="far fa-heart"></i>
+                        <span class="badge">0</span>
+                    </a>
+                    <a href="#" class="icon-btn" title="Giỏ hàng">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="badge">0</span>
+                    </a>
+                </div>
+            </div>
         </div>
     </header>
 
+    <!-- NAVIGATION -->
     <nav class="main-nav">
-        <ul>
-            <li><a href="#" class="active"><i class="fas fa-home"></i> Trang Chủ</a></li>
-            <li><a href="#"><i class="fas fa-laptop"></i> Laptop</a></li>
-            <li><a href="#"><i class="fas fa-mobile"></i> Điện Thoại</a></li>
-            <li><a href="#"><i class="fas fa-headphones"></i> Phụ Kiện</a></li>
-        </ul>
+        <div class="nav-container">
+            <ul class="nav-menu">
+                <li><a href="#" class="active"><i class="fas fa-home"></i> Trang Chủ</a></li>
+                <li><a href="#"><i class="fas fa-laptop"></i> Laptop</a></li>
+                <li><a href="#"><i class="fas fa-mobile-alt"></i> Điện Thoại</a></li>
+                <li><a href="#"><i class="fas fa-headphones"></i> Phụ Kiện</a></li>
+                <li><a href="#"><i class="fas fa-star"></i> Khuyến Mãi</a></li>
+            </ul>
+        </div>
     </nav>
 
-    <div class="hero-banner">
+    <!-- HERO BANNER -->
+    <section class="hero-banner">
         <div class="hero-content">
-            <h2>Chào Mừng Đến LuxeShop</h2>
-            <p>Khám phá công nghệ hàng đầu thế giới với giá tốt nhất</p>
-            <button class="btn-primary"><i class="fas fa-arrow-right"></i> Khám Phá Ngay</button>
+            <h2>Khám Phá Công Nghệ Tương Lai</h2>
+            <p>Sản phẩm chính hãng, giá tốt nhất, giao hàng nhanh chóng</p>
+            <button class="btn-primary"><i class="fas fa-arrow-down"></i> Xem Sản Phẩm</button>
         </div>
-    </div>
+        <div class="hero-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+    </section>
 
+    <!-- MAIN CONTENT -->
     <div class="container">
-        <main class="content">
-            <div class="section-header">
-                <div>
-                    <h2>Sản Phẩm Mới Nhất</h2>
-                    <p class="section-subtitle">Cập nhật các sản phẩm công nghệ mới nhất 2026</p>
+        <div class="content-wrapper">
+            <!-- PRODUCTS SECTION -->
+            <main class="content">
+                <div class="section-header">
+                    <div>
+                        <h2>Sản Phẩm Nổi Bật</h2>
+                        <p class="section-subtitle">Các sản phẩm được lựa chọn kỹ càng cho bạn</p>
+                    </div>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all">Tất cả</button>
+                        <button class="filter-btn" data-filter="laptop">Laptop</button>
+                        <button class="filter-btn" data-filter="phone">Điện Thoại</button>
+                        <button class="filter-btn" data-filter="accessories">Phụ Kiện</button>
+                    </div>
                 </div>
-                <div class="filter-buttons">
-                    <button class="filter-btn active" onclick="filterProducts('all')">Tất Cả</button>
-                    <button class="filter-btn" onclick="filterProducts('laptop')">Laptop</button>
-                    <button class="filter-btn" onclick="filterProducts('phone')">Điện Thoại</button>
-                </div>
-            </div>
-            <div id="product-list" class="product-grid"></div>
-        </main>
 
-        <aside class="sidebar">
-            <div class="widget">
-                <h3><i class="fas fa-list"></i> Danh Mục</h3>
-                <ul class="category-links">
-                    <li><a href="#">Laptop Gaming</a></li>
-                    <li><a href="#">MacBook Pro</a></li>
-                    <li><a href="#">iPhone 15 Series</a></li>
-                    <li><a href="#">Phụ kiện Apple</a></li>
-                    <li><a href="#">Tai nghe Cao Cấp</a></li>
-                </ul>
-            </div>
+                <div id="product-list" class="product-grid"></div>
+            </main>
 
-            <div class="widget">
-                <h3><i class="fas fa-star"></i> Ưu Đãi Đặc Biệt</h3>
-                <div style="text-align: center; padding: 1rem 0;">
-                    <h4 style="color: #6366f1; font-size: 2rem; margin-bottom: 0.5rem;">-30%</h4>
-                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">Cho các sản phẩm chọn lọc</p>
-                    <button class="btn-primary" style="width: 100%;"><i class="fas fa-tag"></i> Xem Ưu Đãi</button>
+            <!-- SIDEBAR -->
+            <aside class="sidebar">
+                <!-- Categories Widget -->
+                <div class="widget">
+                    <div class="widget-header">
+                        <h3><i class="fas fa-list"></i> Danh Mục</h3>
+                    </div>
+                    <ul class="category-links">
+                        <li><a href="#"><i class="fas fa-gamepad"></i> Laptop Gaming</a></li>
+                        <li><a href="#"><i class="fas fa-apple"></i> MacBook Pro</a></li>
+                        <li><a href="#"><i class="fas fa-mobile-alt"></i> iPhone 15 Series</a></li>
+                        <li><a href="#"><i class="fas fa-plug"></i> Phụ kiện Apple</a></li>
+                        <li><a href="#"><i class="fas fa-headphones"></i> Tai nghe</a></li>
+                    </ul>
                 </div>
-            </div>
-        </aside>
+
+                <!-- Price Filter Widget -->
+                <div class="widget">
+                    <div class="widget-header">
+                        <h3><i class="fas fa-filter"></i> Lọc Giá</h3>
+                    </div>
+                    <div class="price-filter">
+                        <input type="range" min="0" max="2000" value="2000" class="price-slider">
+                        <div class="price-display">
+                            <span>Giá: </span>
+                            <span class="price-value">$2000</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Promo Widget -->
+                <div class="widget promo-widget">
+                    <div class="promo-badge">
+                        <i class="fas fa-gift"></i>
+                        <span>KHUYẾN MÃI</span>
+                    </div>
+                    <h4>Giảm 20%</h4>
+                    <p>Cho đơn hàng trên $500</p>
+                    <button class="btn-secondary">Xem Chi Tiết</button>
+                </div>
+            </aside>
+        </div>
     </div>
 
-    <footer class="site-footer">
-        <div class="footer-inner">
-            <div class="footer-col">
-                <h4><i class="fas fa-info-circle"></i> Về LuxeShop</h4>
-                <p>Địa chỉ tin cậy cho các tín đồ công nghệ. Chúng tôi cung cấp những sản phẩm chất lượng cao nhất với giá cạnh tranh nhất.</p>
-            </div>
-            <div class="footer-col">
-                <h4><i class="fas fa-phone"></i> Liên hệ</h4>
-                <p><i class="fas fa-phone"></i> 1900 1234</p>
-                <p><i class="fas fa-envelope"></i> contact@luxeshop.vn</p>
-                <p><i class="fas fa-map-marker-alt"></i> TP. Hồ Chí Minh, Việt Nam</p>
-            </div>
-            
-            <div class="footer-col">
-                <h4><i class="fas fa-share-alt"></i> Kết nối với chúng tôi</h4>
-                <div class="social-icons">
-                    <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
-                    <a href="#" title="Twitter"><i class="fab fa-x-twitter"></i></a>
+    <!-- FEATURES SECTION -->
+    <section class="features-section">
+        <div class="features-container">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-truck"></i>
                 </div>
+                <h4>Giao Hàng Miễn Phí</h4>
+                <p>Cho đơn hàng từ $50</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h4>Bảo Hành 100%</h4>
+                <p>Sản phẩm chính hãng</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-undo"></i>
+                </div>
+                <h4>Đổi Trả Dễ Dàng</h4>
+                <p>Trong 30 ngày</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h4>Hỗ Trợ 24/7</h4>
+                <p>Liên hệ ngay</p>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>© 2026 LuxeShop. Design with <i class="fas fa-heart"></i></p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4><i class="fas fa-info-circle"></i> Về LuxeShop</h4>
+                    <p>Địa chỉ tin cậy cho các tín đồ công nghệ. Chúng tôi cung cấp những sản phẩm công nghệ tốt nhất với giá cạnh tranh nhất.</p>
+                    <div class="social-icons">
+                        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4><i class="fas fa-link"></i> Liên Kết Nhanh</h4>
+                    <ul>
+                        <li><a href="#">Về chúng tôi</a></li>
+                        <li><a href="#">Sản phẩm</a></li>
+                        <li><a href="#">Khuyến mãi</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4><i class="fas fa-phone"></i> Liên Hệ</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Đường Tech, TP. HCM</p>
+                    <p><i class="fas fa-phone"></i> 1900 1234</p>
+                    <p><i class="fas fa-envelope"></i> contact@luxeshop.vn</p>
+                </div>
+                <div class="footer-col">
+                    <h4><i class="fas fa-bell"></i> Đăng Ký Nhận Tin</h4>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Email của bạn" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                    <p class="newsletter-text">Nhận thông tin về sản phẩm mới và khuyến mãi</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 LuxeShop. Thiết kế với <i class="fas fa-heart"></i> | Bảo lưu mọi quyền</p>
+            </div>
         </div>
     </footer>
 
+    <!-- MODAL -->
     <div id="productModal" class="modal">
+        <div class="modal-overlay"></div>
         <div class="modal-content">
-            <span class="close-btn">&times;</span>
+            <button class="close-btn">
+                <i class="fas fa-times"></i>
+            </button>
             <div id="modalBody"></div>
         </div>
     </div>
